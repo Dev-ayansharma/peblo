@@ -1,7 +1,6 @@
 import {
   LayoutDashboard,
-  NotebookPen,
-
+  NotebookPen
 } from "lucide-react";
 
 export const SIDEBAR_ITEMS = [
