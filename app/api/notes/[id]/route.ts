@@ -79,7 +79,17 @@ export async function DELETE(req: NextRequest, context: { params: Promise<{ id: 
      });
      if (!existing) return NextResponse.json({ error: "Note not found" }, { status: 404 });
    
-     await prisma.note.delete({ where: { id: params.id } });
+await prisma.shareLink.deleteMany({
+  where: {
+    noteId: params.id,
+  },
+});
+
+await prisma.note.delete({
+  where: {
+    id: params.id,
+  },
+});
    
      return NextResponse.json({ success: true });
  } catch (error) {
